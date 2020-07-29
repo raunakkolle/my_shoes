@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Data Driven Site</title>
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="assignment.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+
+            <!-- nav header -->
+            <div class="navbar-header">
+                <a href="index.html" class="navbar-brand"><img src="https://i.pinimg.com/originals/20/60/2d/20602d43cc993811e5a6bd1886af4f33.png" width="100"  height ="50" alt="nike logo"> </a>
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- / nav header-->
+
+            <!-- collapsible nav: generated via template -->
+            <div class="navbar-collapse collapse" id="navbar-main" aria-expanded="false" style="height: 1px;">
+
+            </div>
+            <!-- / collapsible nav-->
+
+        </div>
+    </nav>
+    <!-- / navbar -->
+
+    <!-- main container -->
+    <div class="container">
+
+        <div class="page-header" id="banner">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-6">
+                    <h1> My Favourite Nike foot-wears</h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- view menu nav-->
+        <div id="view-menu">
+            <ul class="nav nav-tabs">
+                <li class="menu active" id="categories-tab"><a href="#" class="nav-categories">Categories</a></li>
+                <li class="menu" id="current-category-tab"><a href="#" class="nav-current-category">Current Category</a></li>
+                <li class="menu" id="current-shoe-tab"><a href="#" class="nav-current-shoe">Current Shoes</a></li>
+            </ul>
+        </div>
+        <!-- / view menu nav-->
+
+        <!-- main content: generated via template -->
+        <div id="content" class="container" role="main">
+
+        </div>
+        <!-- / main content -->
+
+    </div>
+    <!-- / main container -->
+
+
+    <!-- 
+        =======================
+        Templates section
+        =======================
+    -->
+
+    <!-- nav category template -->
+    <script id="nav-cat-template" type="text/x-handlebars-template">
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="themes" aria-expanded="false">Categories&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu" aria-labelledby="themes">
+                    {{#each category}}
+                    <li><a href="#" class="nav-link" data-id="{{@index}}">{{name}}</a></li>
+                    {{/each}}
+                </ul>
+            </li>
+        </ul>
+    </script>
+    <!-- / nav category template -->
+
+    <!-- category template -->
+    <script id="category-template" type="text/x-handlebars-template">
+        <!-- category header -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3> Shoe Categories</h3>
+            </div>
+        </div>
+        <!-- content -->
+        <div class="row">
+            {{#each category}}
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <a href="#" class="category-thumb" data-id="{{@index}}"><img src="{{shoes.[0].image1}}" alt="{{shoes.[0].name}}" class="crop-img"></a>
+                <div class="caption">
+                    <h4>{{name}}</h4>
+                    <p>{{shoes.length}} types</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+    </script>
+    <!-- / category template -->
+
+    <!-- shoes template: display 'image1' and 'name' for all shoes in a specific category -->
+    <script id="shoes-template" type="text/x-handlebars-template">
+        <!-- shoes header -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3>{{name}} Category</h3>
+            </div>
+        </div>
+        <!-- content -->
+        <div class="row">
+            {{#each shoes}}
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <a href="#" class="shoe-thumb" data-id="{{@index}}"><img src="{{image1}}" alt="{{name}}" class="crop-img"></a>
+                <div class="caption">
+                    <h4>{{name}}</h4>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </script>
+  
+    
+
+    <script id="shoe-template" type="text/x-handlebars-template">
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="clearfix">
+                    <h4>SHOE&nbsp;Name:&nbsp;{{name}}</h4>
+                    <img src="{{image1}}" alt="{{name}}" class="img-thumbnail" width="250px">
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="clearfix">
+                    <h4>Description:</h4>
+                    <img src="{{image2}}" alt="{{name}}" class="img-thumbnail pull-right" width="250px">
+                    <p>{{description}}</p>
+                </div>
+            </div>
+        </div>
+
+    </script>
+    
+
+
+
+
+
+
+    
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/handlebars-v3.0.3.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="ShoesData.js"></script>
+    <script src="assignment.js"></script>
+
+
+</body>
+
+</html>
